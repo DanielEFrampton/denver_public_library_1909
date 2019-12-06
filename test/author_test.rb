@@ -32,4 +32,20 @@ class AuthorTest < Minitest::Test
     villette = @charlotte_bronte.write("Villette", "1853")
     assert_equal [jane_eyre, villette], @charlotte_bronte.books
   end
+
+  def test_it_can_return_earliest_book
+    jane_eyre = @charlotte_bronte.write("Jane Eyre", "October 16, 1847")
+    villette = @charlotte_bronte.write("Villette", "1853")
+    professor = @charlotte_bronte.write("The Professor", "1857")
+
+    assert_equal jane_eyre, @charlotte_bronte.earliest_book
+  end
+
+  def test_it_can_return_latest_book
+    jane_eyre = @charlotte_bronte.write("Jane Eyre", "October 16, 1847")
+    professor = @charlotte_bronte.write("The Professor", "1857")
+    villette = @charlotte_bronte.write("Villette", "1853")
+
+    assert_equal professor, @charlotte_bronte.latest_book
+  end
 end
