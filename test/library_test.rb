@@ -1,6 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/author'
+require './lib/book'
 require './lib/library'
 
 class LibraryTest < Minitest::Test
@@ -25,7 +26,6 @@ class LibraryTest < Minitest::Test
   end
 
   def test_it_can_add_authors
-    skip
     @dpl.add_author(@charlotte_bronte)
     @dpl.add_author(@harper_lee)
 
@@ -33,7 +33,6 @@ class LibraryTest < Minitest::Test
   end
 
   def test_it_has_books_of_added_authors
-    skip
     @dpl.add_author(@charlotte_bronte)
     @dpl.add_author(@harper_lee)
 
@@ -41,7 +40,6 @@ class LibraryTest < Minitest::Test
   end
 
   def test_it_can_return_publication_time_frame_for_author
-    skip
     bronte_hash = {:start=>"1847", :end=>"1857"}
     assert_equal bronte_hash, @dpl.publication_time_frame_for(@charlotte_bronte)
 
