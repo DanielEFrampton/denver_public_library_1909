@@ -1,11 +1,12 @@
 class Book
-  attr_reader :title
+  attr_reader :title, :checkouts
 
   def initialize(book_info)
     @title = book_info[:title]
     @author_first_name = book_info[:author_first_name]
     @author_last_name = book_info[:author_last_name]
     @publication_date = book_info[:publication_date]
+    @checkouts = 0
   end
 
   def author
