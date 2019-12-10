@@ -30,4 +30,8 @@ class Library
       book.checked_out
     end
   end
+
+  def most_popular_book
+    @books.max_by { |book| book.checkouts }
+  end
 end
