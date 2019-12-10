@@ -18,6 +18,7 @@ class BookTest < Minitest::Test
 
   def test_it_initializes_with_readable_attributes
     assert_equal "To Kill a Mockingbird", @book.title
+    assert_equal 0, @book.checkouts
   end
 
   def test_it_can_return_author_full_name
