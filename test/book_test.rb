@@ -28,4 +28,39 @@ class BookTest < Minitest::Test
   def test_it_can_return_publication_year
     assert_equal "1960", @book.publication_year
   end
+
+  def test_it_can_add_checkout_to_total
+    @book.add_checkout
+
+    assert_equal 1, @book.checkouts
+
+    @book.add_checkout
+
+    assert_equal 2, @book.checkouts
+  end
+
+  def test_checking_out_changes_checkedout_status_to_true
+    assert_equal false, @book.checked_out
+    @book.checkout
+    assert_equal true, @book.checked_out
+    @book.checkout
+    assert_equal true, @book.checked_out
+  end
+
+  def test_being_checked_out_increments_checkouts_and_returns_true
+    assert_equal 0, @book.checkouts
+    assert_equal true, @book.checkout
+    assert_equal 1, @book.checkouts
+    assert_equal true, @book.checkout
+    assert_equal 2, @book.checkouts
+    assert_equal true, @book.checkout
+  end
+
+  def test_its_checked_out_status_changes_to_false_when_returned
+    assert_equal false, @book.checked_out
+    @book.checkout
+    assert_equal true, @book.checked_out
+    @book.return
+    assert_equal false, @book.checked_out
+  end
 end
