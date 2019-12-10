@@ -48,7 +48,6 @@ class LibraryTest < Minitest::Test
   end
 
   def test_it_can_checkout_a_book_or_return_false_if_checked_out
-    skip
     assert_equal false, @dpl.checkout(@mockingbird)
     assert_equal false, @dpl.checkout(@jane_eyre)
 
@@ -57,11 +56,10 @@ class LibraryTest < Minitest::Test
 
     assert_equal true, @dpl.checkout(@jane_eyre)
     assert_equal false, @dpl.checkout(@jane_eyre)
-    assert_equal true, @dpl.checkout(@harper_lee)
+    assert_equal true, @dpl.checkout(@mockingbird)
   end
 
   def test_it_can_return_array_of_checked_out_books
-    skip
     @dpl.add_author(@charlotte_bronte)
     @dpl.checkout(@jane_eyre)
 
@@ -69,7 +67,6 @@ class LibraryTest < Minitest::Test
   end
 
   def test_it_can_return_books
-    skip
     @dpl.add_author(@charlotte_bronte)
     @dpl.add_author(@harper_lee)
     @dpl.checkout(@jane_eyre)
@@ -87,7 +84,6 @@ class LibraryTest < Minitest::Test
   end
 
   def test_it_can_return_most_checked_out_book
-    skip
     @dpl.add_author(@charlotte_bronte)
     @dpl.add_author(@harper_lee)
 
